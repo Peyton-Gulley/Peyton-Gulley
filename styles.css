@@ -53,6 +53,13 @@ body{
 .projectpstyle{
   color: white;
 }
+.aboutmepstyle{
+  font-size: 20px;
+  height: 10vh;
+  margin: auto;
+  padding: 17.5px;
+
+}
 .aboutmep{
   color: white;
   display: flex;
@@ -72,6 +79,10 @@ body{
 .aboutMeTitle{
   font-size: 50px;
   color: white;
+}
+.aboutmeimg{
+  width: 250px;
+  height: 200px;
 }
 /*All Span tags are for the fade in text animations*/
 span {
