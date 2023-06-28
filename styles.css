@@ -84,6 +84,15 @@ body{
   width: 250px;
   height: 200px;
 }
+.hobbiesstyle{
+  color:white;
+}
+.hobbiestitle{
+  font-size: 50px;
+}
+.hobbiessubtitle{
+  font-size: 35;
+}
 /*All Span tags are for the fade in text animations*/
 span {
   opacity: 0;
