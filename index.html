@@ -32,9 +32,9 @@
         <!--the navigation menu buttons-->
         <a href="index.html">Home</a>
         <a href="AboutMe.html">About</a>
-        <a href="Contact.html">Contact</a>
-        <a href="Hobbies.html">Hobbies</a>
         <a href="Projects.html">Projects</a>
+        <a href="Hobbies.html">Hobbies</a>
+        <a href="Contact.html">Contact</a>
       </div>
     <div class="titleName">
         <div class="indexnamebackground">
@@ -42,6 +42,46 @@
             <div><span><p class="MyName2">Aspiring Software Devoloper</p></span></div>
         </div>
     </div>
-      
+    <script>
+        // Get the canvas element
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+    
+        // Circle properties
+        const radius = 20;
+        let x = radius;
+        const y = canvas.height / 2;
+        const speed = 2;
+    
+        // Animation loop
+        function animate() {
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+          // Draw the background
+          ctx.fillStyle = '#f0f0f0';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+          // Draw the circle
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#FF0000';
+          ctx.fill();
+    
+          // Update the circle's position
+          x += speed;
+    
+          // Check if the circle has reached the end of the canvas
+          if (x > canvas.width + radius) {
+            x = -radius;
+          }
+    
+          // Request the next animation frame
+          requestAnimationFrame(animate);
+        }
+    
+        // Start the animation
+        animate();
+      </script>
 </body>
 </html>
