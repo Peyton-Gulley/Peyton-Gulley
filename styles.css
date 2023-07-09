@@ -17,7 +17,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 40%;
+  margin-top: 30%;
 
 }
 .card{
@@ -30,19 +30,17 @@ body{
   cursor: pointer;
   background-position: center;
   background-size: cover;
-  margin-right: 15%;
+  margin-right: 10%;
+  margin-left: 10px ;
 }
 .card1{
   background-image: url(Spotify_icon.svg.png);
 }
 .card2{
-  background-image: url();
+  background-image: url(LinkedIn_logo_initials.png.webp);
 }
 .card3{
-  background-image: url();
-}
-.card4{
-  background-image: url();
+  background-image: url(25231.png);
 }
 /* Input field and button styles */
 .input-field {
