@@ -11,16 +11,39 @@ body{
 }
 .footer {
   position: sticky;
-  background-color: #054fb9;
+   background-color: white;
   padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 40%;
 
 }
-
+.card{
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  margin-right: 15%;
+}
+.card1{
+  background-image: url(Spotify_icon.svg.png);
+}
+.card2{
+  background-image: url();
+}
+.card3{
+  background-image: url();
+}
+.card4{
+  background-image: url();
+}
 /* Input field and button styles */
 .input-field {
   margin-bottom: 10px;
