@@ -1,6 +1,6 @@
 var blockSize = 25;
 var rows = 20;
-var cols = 20;
+var cols = 50;
 var board;
 var context;
 // Snake Head
@@ -15,17 +15,21 @@ var velocityY = 0;
 var foodX;
 var foodY;
 
+var gameOver = false;
+
 window.onload = function() {
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d");
   placefood();
-  document.addEventListener("keyup", changeDirection);
+  document.addEventListener("keydown", handleKeyDown);
   setInterval(update, 1000 / 10);
 };
 
-function changeDirection(e) {
+function handleKeyDown(e) {
+  e.preventDefault(); // Prevent default scrolling behavior
+
   if (e.code === "ArrowUp" && velocityY !== 1) {
     velocityX = 0;
     velocityY = -1;
@@ -45,6 +49,10 @@ function changeDirection(e) {
 }
 
 function update() {
+  if (gameOver) {
+    return;
+  }
+
   context.fillStyle = "black";
   context.fillRect(0, 0, board.width, board.height);
 
@@ -55,9 +63,14 @@ function update() {
     snakeBody.push([foodX, foodY]);
     placefood();
   }
-for (let i = snakeBody.length-1; i > 0; i--){
-    snakeBody[i] =snakeBody[i-i];
-}
+
+  for (let i = snakeBody.length - 1; i > 0; i--) {
+    snakeBody[i] = snakeBody[i - 1];
+  }
+  if (snakeBody.length) {
+    snakeBody[0] = [snakeX, snakeY];
+  }
+
   context.fillStyle = "lime";
   snakeX += velocityX * blockSize;
   snakeY += velocityY * blockSize;
@@ -65,6 +78,19 @@ for (let i = snakeBody.length-1; i > 0; i--){
 
   for (let i = 0; i < snakeBody.length; i++) {
     context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+  }
+  
+  // Game over conditions
+  if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
+    gameOver = true;
+    alert("Game Over");
+  }
+  
+  for (let i = 0; i < snakeBody.length; i++) {
+    if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
+      gameOver = true;
+      alert("Game Over");
+    }
   }
 }
 
